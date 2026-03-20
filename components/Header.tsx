@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 export default function Header() {
   return (
@@ -7,6 +7,7 @@ export default function Header() {
         <div className="flex-shrink-0 font-bold text-xl text-blue-600">
           Hakuna
         </div>
+
         <div className="hidden md:block">
           <div className="ml-10 flex items-baseline space-x-4">
             <Link href="#destinos" className="text-gray-700 hover:text-blue-600">
@@ -18,9 +19,15 @@ export default function Header() {
             <Link href="#contacto" className="text-gray-700 hover:text-blue-600">
               Contacto
             </Link>
+            <Link
+              href="/login"
+              className="text-white bg-blue-600 px-4 py-2 rounded hover:bg-blue-700"
+            >
+              Entrar
+            </Link>
           </div>
         </div>
       </nav>
     </header>
-  );
+  )
 }
