@@ -7,6 +7,9 @@ import Index from "./pages/Index.tsx";
 import Catalog from "./pages/Catalog.tsx";
 import TourDetail from "./pages/TourDetail.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import Login from "./pages/Login.tsx";
+import Dashboard from "./pages/Dashboard.tsx";
+import ProtectedRoute from "./components/ProtectedRoute.tsx";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +23,15 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/catalogo" element={<Catalog />} />
           <Route path="/tour/:id" element={<TourDetail />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -21,8 +21,12 @@ const Navbar = () => {
       <div className="gradient-royal hidden md:block">
         <div className="container mx-auto flex items-center justify-between px-6 py-2 text-sm text-primary-foreground/90">
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1"><MapPin className="h-3 w-3" /> Bogotá, Colombia</span>
-            <span className="flex items-center gap-1"><Phone className="h-3 w-3" /> +57 300 123 4567</span>
+            <span className="flex items-center gap-1">
+              <MapPin className="h-3 w-3" /> Bogotá, Colombia
+            </span>
+            <span className="flex items-center gap-1">
+              <Phone className="h-3 w-3" /> +57 300 123 4567
+            </span>
           </div>
           <span className="font-medium">✨ ¡Ofertas de temporada hasta 30% OFF!</span>
         </div>
@@ -52,7 +56,15 @@ const Navbar = () => {
             ))}
           </div>
 
+          {/* Desktop actions */}
           <div className="hidden items-center gap-3 md:flex">
+            <Link
+              to="/login"
+              className="rounded-lg border border-border px-5 py-2.5 text-sm font-semibold text-foreground transition-all hover:bg-muted"
+            >
+              Entrar
+            </Link>
+
             <Link
               to="/catalogo"
               className="rounded-lg gradient-royal px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all hover:opacity-90 hover:shadow-lg"
@@ -87,10 +99,19 @@ const Navbar = () => {
                     {link.label}
                   </Link>
                 ))}
+
+                <Link
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="mt-2 rounded-lg border border-border px-5 py-3 text-center text-sm font-semibold text-foreground transition-colors hover:bg-muted"
+                >
+                  Entrar
+                </Link>
+
                 <Link
                   to="/catalogo"
                   onClick={() => setIsOpen(false)}
-                  className="mt-2 rounded-lg gradient-royal px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
+                  className="rounded-lg gradient-royal px-5 py-3 text-center text-sm font-semibold text-primary-foreground"
                 >
                   Reservar ahora
                 </Link>
