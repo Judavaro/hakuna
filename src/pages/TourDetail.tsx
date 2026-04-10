@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Star, Clock, Check, ChevronLeft, Users, Calendar } from "lucide-react";
+import { MapPin, Star, Clock, Check, ChevronLeft, Users, Calendar, TicketCheck, MessageCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { tours } from "@/data/tours";
@@ -123,11 +123,11 @@ const TourDetail = () => {
           <div className="lg:col-span-1">
             <div className="sticky top-24 rounded-2xl border border-border bg-card p-6 shadow-card">
               <div className="mb-4">
-                {tour.originalPrice && (
+                {/*tour.originalPrice && (
                   <span className="text-sm text-muted-foreground line-through">{formatPrice(tour.originalPrice)}</span>
-                )}
-                <p className="text-3xl font-bold text-primary">{formatPrice(tour.price)}</p>
-                <span className="text-sm text-muted-foreground">por persona</span>
+                )*/}
+                <p className="text-3xl font-bold text-primary">{formatPrice(tour.price)}
+                <span className="text-sm text-muted-foreground"> por persona</span></p>
               </div>
 
               <div className="mb-4 space-y-3">
@@ -169,26 +169,21 @@ const TourDetail = () => {
                 </button>
               ) : (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
-                  <input placeholder="Nombre completo" className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground" />
+                  <label className="mb-1 block text-sm font-medium text-card-foreground">
+                    <TicketCheck className="mr-1 inline h-4 w-4" /> Datos de reserva
+                  </label>
+                  <input placeholder="Nombre Completo" className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground" />
                   <input placeholder="Email" type="email" className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground" />
-                  <input placeholder="Teléfono / WhatsApp" className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground" />
-                  <button className="w-full rounded-xl gradient-sunset py-3.5 font-semibold text-secondary-foreground transition-all hover:opacity-90">
-                    Confirmar reserva
+                  <input placeholder="Teléfono / WhatsApp" className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground" />                  
+                  <input placeholder="Código Agente Turístico (Opcional)" className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground" />
+                  <button className="w-full rounded-xl bg-accent py-3.5 font-semibold text-accent-foreground transition-all hover:opacity-90">
+                    <MessageCircle className="mr-1 inline h-4 w-4" /> Continuar reserva vía Whatsapp
                   </button>
                   <button onClick={() => setShowCheckout(false)} className="w-full text-center text-sm text-muted-foreground hover:text-foreground">
                     Cancelar
                   </button>
                 </motion.div>
               )}
-
-              <a
-                href="https://wa.me/573001234567"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 block w-full rounded-xl border border-border py-3 text-center text-sm font-medium text-card-foreground transition-colors hover:bg-muted"
-              >
-                💬 Preguntar por WhatsApp
-              </a>
             </div>
           </div>
         </div>
